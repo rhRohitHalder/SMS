@@ -1,10 +1,11 @@
 import React from 'react'
 import Login from './Components/Login/Login'
+import Subject from './Components/Subject/Subject'
 
 function App() {
   return (
     <div>
-      <Login/>
+      <Subject/>
     </div>
   )
 }
