@@ -2,66 +2,150 @@ import React, { useState } from 'react'
 
 function Subject() {
     const [subjects, setSubjects] = useState([]);
-    const [subjectDeatils, setSubjectDeatils] = {
+    const [subjectDetails, setSubjectDetails] = useState({
         subjectName: '',
         subjectType: '',
         class: '',
-        Date: ''
-    }
-  return (
-    <div className='w-full h-auto px-10 py-10'>
-        <p className='text-5xl font-semibold'>All Subjects</p>
-        <div className='w-full h-auto flex flex-row gap-10 mt-10'>
-            <div className='w-1/3 bg-slate-300 px- h-auto p-10 rounded-lg'>
-                <p className='text-4xl font-semibold'>Add New Subject</p>
-                <form 
-                className='w-[85%]'
-                action="">
-                    <p className='mt-5 text-xl mb-2'>Subject Name</p>
-                    <input 
-                    placeholder='Enter Subject Name'
-                    className='w-full px-4 py-4 rounded-lg'
-                    type="text" />
-                    <p className='mt-5 text-xl mb-2'>Subject Type</p>
-                    <select
-                    className='w-full px-4 py-4 rounded-lg'
-                    >Please Select</select>
-                    <p className='mt-5 text-xl mb-2'>Select Class</p>
-                    <select
-                    className='w-full px-4 py-4 rounded-lg'
-                    >Please Select</select>
-                    <p className='mt-5 text-xl mb-2'>Select Code</p>
-                    <select
-                    className='w-full px-4 py-4 rounded-lg'
-                    >Please Select</select>
-                    <div className='w-full flex gap-10 flex-row mt-10 text-white'>
+        subjectCode: '',
+        Date: new Date().toLocaleDateString(),
+    });
+
+    const subjectTypes = ['English', 'Hindi', 'Maths', 'Science', 'Social Science'];
+    const classes = [5, 6, 7, 8, 9, 10, 11, 12];
+    const codes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+
+    const handleSubmit = (e) => {
+        e.preventDefault(); // Prevent page refresh
+        setSubjects([...subjects, subjectDetails]);
+        setSubjectDetails({ // Reset form after submission
+            subjectName: '',
+            subjectType: '',
+            class: '',
+            subjectCode: '',
+            Date: new Date().toLocaleDateString(),
+        });
+    };
+
+    const handleReset = () => {
+        setSubjectDetails({
+            subjectName: '',
+            subjectType: '',
+            class: '',
+            subjectCode: '',
+            Date: new Date().toLocaleDateString(),
+        });
+    };
+
+    return (
+        <div className='w-full h-auto px-10 py-10'>
+            <p className='text-5xl font-semibold'>All Subjects</p>
+            <div className='w-full h-auto flex flex-row gap-10 mt-10'>
+                {/* Left Side - Form */}
+                <div className='w-1/3 bg-slate-300 p-10 rounded-lg'>
+                    <p className='text-4xl font-semibold'>Add New Subject</p>
+                    <form className='w-[85%]' onSubmit={handleSubmit}>
+                        <p className='mt-5 text-xl mb-2'>Subject Name</p>
                         <input
-                        className='px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg'
-                         type="submit" value='Save' />
-                        <input 
-                        className='px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg'
-                        type="submit" value='Reset' />
+                            value={subjectDetails.subjectName}
+                            onChange={(e) => setSubjectDetails({ ...subjectDetails, subjectName: e.target.value })}
+                            placeholder='Enter Subject Name'
+                            className='w-full px-4 py-4 rounded-lg'
+                            type="text"
+                            required
+                        />
+                        <p className='mt-5 text-xl mb-2'>Subject Type</p>
+                        <select
+                            value={subjectDetails.subjectType}
+                            onChange={(e) => setSubjectDetails({ ...subjectDetails, subjectType: e.target.value })}
+                            className='w-full px-4 py-4 rounded-lg'
+                            required
+                        >
+                            <option value="">Please Select</option>
+                            {subjectTypes.map((item, index) => (
+                                <option key={index} value={item}>{item}</option>
+                            ))}
+                        </select>
+                        <p className='mt-5 text-xl mb-2'>Select Class</p>
+                        <select
+                            value={subjectDetails.class}
+                            onChange={(e) => setSubjectDetails({ ...subjectDetails, class: e.target.value })}
+                            className='w-full px-4 py-4 rounded-lg'
+                            required
+                        >
+                            <option value="">Please Select</option>
+                            {classes.map((item, index) => (
+                                <option key={index} value={item}>{item}</option>
+                            ))}
+                        </select>
+                        <p className='mt-5 text-xl mb-2'>Select Code</p>
+                        <select
+                            value={subjectDetails.subjectCode}
+                            onChange={(e) => setSubjectDetails({ ...subjectDetails, subjectCode: e.target.value })}
+                            className='w-full px-4 py-4 rounded-lg'
+                            required
+                        >
+                            <option value="">Please Select</option>
+                            {codes.map((item, index) => (
+                                <option key={index} value={item}>{item}</option>
+                            ))}
+                        </select>
+                        <div className='w-full flex gap-10 flex-row mt-10 text-white'>
+                            <button
+                                type="submit"
+                                className='px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer'
+                            >
+                                Save
+                            </button>
+                            <button
+                                type="button"
+                                onClick={handleReset}
+                                className='px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer'
+                            >
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                {/* Right Side - Table */}
+                <div className='w-2/3 bg-slate-300 p-10 rounded-lg'>
+                    <p className='text-4xl font-semibold'>All Subjects</p>
+                    <div className='mt-5'>
+                        <table className='w-full border-collapse border border-gray-500'>
+                            <thead>
+                                <tr className='bg-gray-400'>
+                                    <th className='px-4 py-2'>ID</th>
+                                    <th className='px-4 py-2'>Subject Name</th>
+                                    <th className='px-4 py-2'>Subject Type</th>
+                                    <th className='px-4 py-2'>Class</th>
+                                    <th className='px-4 py-2'>Code</th>
+                                    <th className='px-4 py-2'>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {subjects.length > 0 ? (
+                                    subjects.map((subject, index) => (
+                                        <tr key={index} className='text-center bg-white'>
+                                            <td className=' px-4 py-2'>{index + 1}</td>
+                                            <td className=' px-4 py-2'>{subject.subjectName}</td>
+                                            <td className=' px-4 py-2'>{subject.subjectType}</td>
+                                            <td className=' px-4 py-2'>{subject.class}</td>
+                                            <td className=' px-4 py-2'>{subject.subjectCode}</td>
+                                            <td className=' px-4 py-2'>{subject.Date}</td>
+                                        </tr>
+                                    ))
+                                ) : (
+                                    <tr>
+                                        <td colSpan="6" className='text-center p-4'>No subjects added yet.</td>
+                                    </tr>
+                                )}
+                            </tbody>
+                        </table>
                     </div>
-                </form>
-            </div>
-            <div className='w-2/3 bg-slate-300 px- h-auto p-10 rounded-lg'>
-                <p className='text-4xl font-semibold'>All Subjects</p>
-                <div>
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Subject Name</th>
-                            <th>Subject Type</th>
-                            <th>Class</th>
-                            <th>Date</th>
-                        </tr>
-                        
-                    </table>
                 </div>
             </div>
         </div>
-    </div>
-  )
+    )
 }
 
-export default Subject
+export default Subject;
