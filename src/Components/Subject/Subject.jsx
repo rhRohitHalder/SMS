@@ -125,7 +125,8 @@ function Subject() {
                             <tbody>
                                 {subjects.length > 0 ? (
                                     subjects.map((subject, index) => (
-                                        <tr key={index} className='text-center bg-white'>
+                                        <tr key={index} 
+                                        className={`hover:bg-gray-500 text-center bg-white border-t-[3px] ${index % 2 === 0 ? 'bg-gray-200' : 'bg-gray-300'}`}>
                                             <td className=' px-4 py-2'>{index + 1}</td>
                                             <td className=' px-4 py-2'>{subject.subjectName}</td>
                                             <td className=' px-4 py-2'>{subject.subjectType}</td>
