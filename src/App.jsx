@@ -1,11 +1,10 @@
 import React from 'react'
-import Login from './Components/Login/Login'
-import Subject from './Components/Subject/Subject'
+import Notice from './Components/Notice Board/Notice'
 
 function App() {
   return (
     <div>
-      <Subject/>
+      <Notice/>
     </div>
   )
 }
