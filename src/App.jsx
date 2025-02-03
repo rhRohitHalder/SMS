@@ -1,10 +1,10 @@
 import React from 'react'
-import Notice from './Components/Notice Board/Notice'
+import Rotune from './Components/Rotune/Rotune'
 
 function App() {
   return (
     <div>
-      <Notice/>
+      <Rotune/>
     </div>
   )
 }
