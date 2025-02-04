@@ -1,11 +1,12 @@
 import React from 'react'
-import ExamGrades from './Components/Exam/ExamGrades'
+import Notice from '../src/Components/Notice Board/Notice'
+import Hostel from './Components/Hostel/Hostel'
 
 
 function App() {
   return (
     <div>
-      <ExamGrades/>
+      <Hostel/>
     </div>
   )
 }
