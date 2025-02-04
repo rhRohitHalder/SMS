@@ -31,6 +31,14 @@ function Notice() {
     });
   };
 
+  const colorList = {
+    1: "red",
+    2: "green",
+    3: "#bda800",
+    4: "blue",
+    5: "gray",
+  }
+
   return (
     <div className="flex h-screen w-full">
     <Sidebar/>
@@ -38,7 +46,7 @@ function Notice() {
       <p className="text-4xl font-semibold">Notice Board</p>
       <div className="w-full h-auto flex flex-row gap-10 mt-10">
         {/* Left Side - Form */}
-        <div className="w-1/3 bg-slate-300 p-10 rounded-lg">
+        <div className="w-1/3  bg-slate-300 p-10 rounded-lg">
           <p className="text-4xl font-semibold">Create A Notice</p>
           <form className="w-[85%]" onSubmit={handleSubmit}>
             <p className="mt-5 text-xl mb-2">Title</p>
@@ -121,7 +129,9 @@ function Notice() {
             {noticeList.length > 0 ? (
               noticeList.map((notice, index) => (
                 <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow-md">
-                    <p className="text-lg text-white bg-pink-600 font-semibold px-5 mb-3 py-2 rounded-full inline-block">{notice.Date}</p>
+                    <p 
+                    style={{backgroundColor: colorList[index % 5 + 1]}}
+                    className="text-lg text-white font-semibold px-5 mb-3 py-2 rounded-full inline-block">{notice.Date}</p>
                     <p className="text-2xl font-semibold">{notice.title}</p>
                     <p className="text-lg">{notice.details}</p>
                     <p><strong>Posted By:</strong> {notice.postedBy}</p>
