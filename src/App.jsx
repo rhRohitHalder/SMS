@@ -1,11 +1,11 @@
 import React from 'react'
-import ExamShedule from './Components/Exam/ExamShedule'
+import ExamGrades from './Components/Exam/ExamGrades'
 
 
 function App() {
   return (
     <div>
-      <ExamShedule/>
+      <ExamGrades/>
     </div>
   )
 }

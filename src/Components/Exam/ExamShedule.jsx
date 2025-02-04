@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 
 function ExamShedule() {
-  const [subjects, setSubjects] = useState([]);
-  const [subjectDetails, setSubjectDetails] = useState({
+  const [shedules, setShedules] = useState([]);
+  const [shedulesDetails, setShedulesDetails] = useState({
     subjectName: "",
     subjectType: "",
     class: "",
@@ -32,8 +32,8 @@ function ExamShedule() {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent page refresh
-    setSubjects([...subjects, subjectDetails]);
-    setSubjectDetails({
+    setShedules([...shedules, shedulesDetails]);
+    setShedulesDetails({
       // Reset form after submission
       subjectName: "",
       subjectType: "",
@@ -45,7 +45,7 @@ function ExamShedule() {
   };
 
   const handleReset = () => {
-    setSubjectDetails({
+    setShedulesDetails({
       subjectName: "",
       subjectType: "",
       class: "",
@@ -64,10 +64,10 @@ function ExamShedule() {
           <form className="w-[85%]" onSubmit={handleSubmit}>
             <p className="mt-5 text-xl mb-2">Exam Name</p>
             <input
-              value={subjectDetails.subjectName}
+              value={shedulesDetails.subjectName}
               onChange={(e) =>
-                setSubjectDetails({
-                  ...subjectDetails,
+                setShedulesDetails({
+                  ...shedulesDetails,
                   subjectName: e.target.value,
                 })
               }
@@ -78,10 +78,10 @@ function ExamShedule() {
             />
             <p className="mt-5 text-xl mb-2">Subject Type</p>
             <select
-              value={subjectDetails.subjectType}
+              value={shedulesDetails.subjectType}
               onChange={(e) =>
-                setSubjectDetails({
-                  ...subjectDetails,
+                setShedulesDetails({
+                  ...shedulesDetails,
                   subjectType: e.target.value,
                 })
               }
@@ -97,9 +97,12 @@ function ExamShedule() {
             </select>
             <p className="mt-5 text-xl mb-2">Select Class</p>
             <select
-              value={subjectDetails.class}
+              value={shedulesDetails.class}
               onChange={(e) =>
-                setSubjectDetails({ ...subjectDetails, class: e.target.value })
+                setShedulesDetails({
+                  ...shedulesDetails,
+                  class: e.target.value,
+                })
               }
               className="w-full px-4 py-4 rounded-lg"
               required
@@ -113,10 +116,10 @@ function ExamShedule() {
             </select>
             <p className="mt-5 text-xl mb-2">Select Section</p>
             <select
-              value={subjectDetails.Sec}
+              value={shedulesDetails.Sec}
               onChange={(e) =>
-                setSubjectDetails({
-                  ...subjectDetails,
+                setShedulesDetails({
+                  ...shedulesDetails,
                   Sec: e.target.value,
                 })
               }
@@ -132,10 +135,10 @@ function ExamShedule() {
             </select>
             <p className="mt-5 text-xl mb-2">Select Time</p>
             <select
-              value={subjectDetails.time}
+              value={shedulesDetails.time}
               onChange={(e) =>
-                setSubjectDetails({
-                  ...subjectDetails,
+                setShedulesDetails({
+                  ...shedulesDetails,
                   time: e.target.value,
                 })
               }
@@ -151,14 +154,13 @@ function ExamShedule() {
             </select>
             <p className="mt-5 text-xl mb-2">Date</p>
             <input
-              value={subjectDetails.Date}
+              value={shedulesDetails.Date}
               onChange={(e) =>
-                setSubjectDetails({
-                  ...subjectDetails,
+                setShedulesDetails({
+                  ...shedulesDetails,
                   Date: e.target.value,
                 })
               }
-              placeholder="Enter Subject Name"
               className="w-full px-4 py-4 rounded-lg"
               type="date"
               required
@@ -180,7 +182,7 @@ function ExamShedule() {
             </div>
           </form>
         </div>
-
+  
         {/* Right Side - Table */}
         <div className="w-2/3 bg-slate-300 p-10 rounded-lg">
           <p className="text-4xl font-semibold">All Subjects</p>
@@ -197,20 +199,20 @@ function ExamShedule() {
                 </tr>
               </thead>
               <tbody>
-                {subjects.length > 0 ? (
-                  subjects.map((subject, index) => (
+                {shedules.length > 0 ? (
+                  shedules.map((shedule, index) => (
                     <tr
                       key={index}
                       className={`hover:bg-gray-500 text-center bg-white border-t-[3px] ${
                         index % 2 === 0 ? "bg-gray-200" : "bg-gray-300"
                       }`}
                     >
-                      <td className=" px-4 py-2">{subject.subjectName}</td>
-                      <td className=" px-4 py-2">{subject.subjectType}</td>
-                      <td className=" px-4 py-2">{subject.class}</td>
-                      <td className=" px-4 py-2">{subject.Sec}</td>
-                      <td className=" px-4 py-2">{subject.time}</td>
-                      <td className=" px-4 py-2">{subject.Date}</td>
+                      <td className=" px-4 py-2">{shedule.subjectName}</td>
+                      <td className=" px-4 py-2">{shedule.subjectType}</td>
+                      <td className=" px-4 py-2">{shedule.class}</td>
+                      <td className=" px-4 py-2">{shedule.Sec}</td>
+                      <td className=" px-4 py-2">{shedule.time}</td>
+                      <td className=" px-4 py-2">{shedule.Date}</td>
                     </tr>
                   ))
                 ) : (
@@ -226,7 +228,7 @@ function ExamShedule() {
         </div>
       </div>
     </div>
-  );
+  );  
 }
 
 export default ExamShedule;
