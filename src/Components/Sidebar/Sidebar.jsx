@@ -37,6 +37,12 @@ const Sidebar = () => {
                         <h1 className="text-white text-xl font-semibold">Hostel</h1>
                     </div>
                 </Link>
+                <Link to="/message">
+                    <div className="p-4 flex items-center gap-4 hover:bg-gray-700 transition duration-300 ease-in-out">
+                        <FaSchool className="text-white text-4xl" />
+                        <h1 className="text-white text-xl font-semibold">Message</h1>
+                    </div>
+                </Link>
             </div>
         </div>
     );
