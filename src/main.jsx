@@ -10,6 +10,7 @@ import Notice from './Components/Notice Board/Notice.jsx'
 import NotFoundPage from './Components/ErrorsPages/404Page.jsx'
 import Dashboard from './Components/Dashboard/Dashboard.jsx'
 import Routine from './Components/Routine/Routine.jsx'
+import Hostel from './Components/Hostel/Hostel.jsx'
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/exam-schedule" element={<ExamSchedule />} />
         <Route path="/notice" element={<Notice />} />
         <Route path='/routine' element={<Routine />} />
+        <Route path='/hostel' element={<Hostel />} />
       </Routes>
     </BrowserRouter>
   </Provider>
