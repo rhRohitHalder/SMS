@@ -1,12 +1,7 @@
-import React from 'react'
-import ExamShedule from './Components/Exam/ExamShedule'
-
-
+import Sidebar from "./Components/Sidebar/Sidebar"
 function App() {
   return (
-    <div>
-      <ExamShedule/>
-    </div>
+    <Sidebar/>
   )
 }
 
