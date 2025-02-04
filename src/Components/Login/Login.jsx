@@ -67,7 +67,7 @@ function Login() {
                 <input
                   type="submit"
                   value="Sign In"
-                  className="cursor-pointer px-4 py-2 rounded-lg bg-blue-500 text-white mt-10"
+                  className="cursor-pointer px-4 py-4 rounded-lg bg-blue-500 text-white mt-10"
                 />
               </form>
             </TabPanel>
