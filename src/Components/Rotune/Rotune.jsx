@@ -160,7 +160,7 @@ function Rotune() {
             <div className="w-full flex gap-10 flex-row mt-10 text-white">
               <button
                 type="submit"
-                className="px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer"
+                className="px-10 text-2xl font-semibold py-2 bg-[#FE8D01] rounded-lg cursor-pointer"
               >
                 Save
               </button>

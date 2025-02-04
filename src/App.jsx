@@ -1,13 +1,11 @@
 import React from 'react'
-import Rotune from './Components/Rotune/Rotune'
-import Login from './Components/Login/Login'
+import ExamShedule from './Components/Exam/ExamShedule'
 
 
 function App() {
   return (
     <div>
-      <Login/>
-      <Rotune/>
+      <ExamShedule/>
     </div>
   )
 }
