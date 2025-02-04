@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import Sidebar from "../Sidebar/Sidebar";
 
 function Notice() {
   const [noticeList, setNoticeList] = useState([]);
@@ -39,8 +40,10 @@ function Notice() {
   }
 
   return (
-    <div className="w-full h-auto px-10 py-10">
-      <p className="text-5xl font-semibold">Notice Board</p>
+    <div className="flex h-screen w-full">
+    <Sidebar/>
+    <div className="w-full h-auto px-10">
+      <p className="text-4xl font-semibold">Notice Board</p>
       <div className="w-full h-auto flex flex-row gap-10 mt-10">
         {/* Left Side - Form */}
         <div className="w-1/3  bg-slate-300 p-10 rounded-lg">
@@ -141,6 +144,7 @@ function Notice() {
         </div>
       </div>
     </div>
+  </div>
   );
 }
 
