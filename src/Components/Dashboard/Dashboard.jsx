@@ -44,7 +44,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <div className="mt-10 px-10">
+            <div className="mt-10 px-10 flex flex-row">
                 <div className="flex flex-col w-1/2 shadow-lg p-5">
                     <p className="text-2xl font-semibold">Earning</p>
                     <div className="mt-10 flex flex-row justify-between px-5">
@@ -65,7 +65,14 @@ const Dashboard = () => {
                         <p className="text-gray-400">{new Date().toDateString()}</p>
                     </div>
                 </div>
-                <div></div>
+                <div className="w-1/2 flex flex-row gap-10">
+                    <div className="w-1/2 p-5 shadow-lg">
+                        <p className="text-2xl font-semibold">Expenses</p>
+                    </div>
+                    <div className="w-1/2 p-5 shadow-lg">
+                        <p className="text-2xl font-semibold">Students</p>
+                    </div>
+                </div>
             </div>
         </div>
       </div>
