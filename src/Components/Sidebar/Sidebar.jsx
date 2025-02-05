@@ -1,12 +1,22 @@
 import { FaSchool } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
-import { PiExam, PiNotificationDuotone, PiScales } from "react-icons/pi";
+import { PiExam, PiNotificationDuotone } from "react-icons/pi";
 import { Link } from "react-router";
+import { store } from "../../utils/store";
 
 const Sidebar = () => {
     return (
         <div className="flex flex-col sticky top-0 bg-gradient-to-br from-gray-900 to-gray-700 shadow-lg pt-10">
             <div className="w-64 sticky">
+                <div>
+                    <div className="flex items-center justify-center">
+                        <img src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png" alt="user" className="w-20 h-20 rounded-full" />
+                    </div>
+                    <div className="text-center mt-4">
+                        <h1 className="text-white text-xl font-semibold">{store.getState().role.value}</h1>
+                        <h1 className="text-gray-400 text-sm font-semibold">Admin</h1>
+                    </div>
+                </div>
                 <Link to="/dashboard">
                     <div className="p-4 flex items-center gap-4 hover:bg-gray-700 transition duration-300 ease-in-out">
                         <MdDashboard className="text-white text-4xl" />

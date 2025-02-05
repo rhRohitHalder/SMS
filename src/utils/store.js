@@ -5,5 +5,13 @@ export const store = configureStore({
     // Add your reducers here
     // For example:
     ExamShedule: ExamShedule.reducer,
+    role: (state = {value: ''}, action) => {
+      switch (action.type) {
+        case 'ASSIGN_ROLE':
+          return { value: action.payload }
+        default:
+          return state
+      }
+    },
   },
 })
