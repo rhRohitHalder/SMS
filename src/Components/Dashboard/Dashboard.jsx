@@ -44,6 +44,29 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            <div className="mt-10 px-10">
+                <div className="flex flex-col w-1/2 shadow-lg p-5">
+                    <p className="text-2xl font-semibold">Earning</p>
+                    <div className="mt-10 flex flex-row justify-between px-5">
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="flex flex-row items-center gap-2">
+                                <p className="w-3 h-3 rounded-full border-2 border-gray-500 bg-blue-500"></p>
+                                <p className="text-gray-400">Total Collectiona</p>
+                            </div>
+                            <p className="text-4xl flex items-center"><span className="text-2xl text-gray-400">$</span> {1500}</p>
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                            <div className="flex flex-row items-center gap-2">
+                                <p className="w-3 h-3 rounded-full border-2 border-green-500 bg-blue-500"></p>
+                                <p  className="text-gray-400">Fees Collectiona</p>
+                            </div>
+                            <p className="text-4xl flex items-center"><span className="text-2xl text-gray-400">$</span> {1500}</p>
+                        </div>
+                        <p className="text-gray-400">{new Date().toDateString()}</p>
+                    </div>
+                </div>
+                <div></div>
+            </div>
         </div>
       </div>
     </div>
