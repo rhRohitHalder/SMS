@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
+import Header from "../Header/Header";
 
 function Hostel() {
   const [hostelList, setHostelList] = useState([]);
@@ -38,9 +39,10 @@ function Hostel() {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex flex-col items-center justify-center h-screen w-screen bg-gray-100">
+      <div className="flex flex-col w-screen bg-gray-100">
+        <Header/>
         <div className="w-full h-auto px-10 py-10">
-          <p className="text-5xl font-semibold">Hostel Management</p>
+          <p className="text-3xl font-semibold">Hostel List</p>
           <div className="w-full h-auto flex flex-row gap-10 mt-10">
             {/* Left Side - Form */}
             <div className="w-1/3 bg-slate-300 p-10 rounded-lg">

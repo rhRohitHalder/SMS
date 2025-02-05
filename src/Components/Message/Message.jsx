@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Header from "../Header/Header";
 
 function Message() {
   const [message, setMessage] = useState({
@@ -38,7 +39,9 @@ function Message() {
   return (
     <div className="flex flex-row">
       <Sidebar />
-      <div className="w-full h-full p-10">
+      <div className="w-full h-full">
+        <Header />
+        <div className="w-full h-auto p-10">
         <p className="text-5xl font-semibold">Messaging</p>
         <div className="w-full h-full flex justify-center items-center">
           <div className="mt-20 bg-gray-400 w-3/4 px-20 py-20 rounded-lg">
@@ -87,6 +90,7 @@ function Message() {
               </div>
             </form>
           </div>
+        </div>
         </div>
       </div>
       <ToastContainer />

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
+import Header from "../Header/Header";
 
 function Notice() {
   const [noticeList, setNoticeList] = useState([]);
@@ -42,8 +43,10 @@ function Notice() {
   return (
     <div className="flex h-screen w-full">
     <Sidebar/>
-    <div className="w-full h-auto px-10">
-      <p className="text-4xl font-semibold">Notice Board</p>
+    <div className="w-full h-auto">
+    <Header/>
+      <div className="w-full h-full p-10 ">
+      <p className="text-3xl font-semibold">Notice Board</p>
       <div className="w-full h-auto flex flex-row gap-10 mt-10">
         {/* Left Side - Form */}
         <div className="w-1/3  bg-slate-300 p-10 rounded-lg">
@@ -143,6 +146,8 @@ function Notice() {
           </div>
         </div>
       </div>
+      </div>
+      
     </div>
   </div>
   );
