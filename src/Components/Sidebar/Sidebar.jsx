@@ -14,7 +14,7 @@ const Sidebar = () => {
                     </div>
                     <div className="text-center mt-4">
                         <h1 className="text-white text-xl font-semibold">{store.getState().role.value}</h1>
-                        <h1 className="text-gray-400 text-sm font-semibold">Admin</h1>
+                        <h1 className="text-gray-400 text-sm font-semibold">{store.getState().name.value}</h1>
                     </div>
                 </div>
                 <Link to="/dashboard">

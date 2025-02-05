@@ -13,5 +13,13 @@ export const store = configureStore({
           return state
       }
     },
+    name: (state = {value: ''}, action) => {
+      switch (action.type) {
+        case 'ASSIGN_NAME':
+          return { value: action.payload }
+        default:
+          return state
+      }
+    },
   },
 })

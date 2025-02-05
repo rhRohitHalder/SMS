@@ -16,15 +16,13 @@ function Login() {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setCredentials((prev) => ({ ...prev, [name]: value }));
-    if (name === "username") {
-      dispatch({ type: "ASSIGN_NAME", payload: value});
-    }
   };
 
   const handleSubmit = (role) => (e) => {
     e.preventDefault();
     console.log(`Authenticating as ${role}:`, credentials);
     dispatch({ type: "ASSIGN_ROLE", payload: role });
+    dispatch({ type: "ASSIGN_NAME", payload: credentials.username });
     navigation(`/dashboard`);
     setCredentials({ username: "", password: "" });
   };
