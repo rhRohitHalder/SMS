@@ -7,7 +7,7 @@ import { store } from "../../utils/store";
 const Sidebar = () => {
     return (
         <div className="flex flex-col sticky top-0 bg-gradient-to-br from-gray-900 to-gray-700 shadow-lg pt-10">
-            <div className="w-64 sticky">
+            <div className="w-64 sticky h-screen">
                 <div>
                     <div className="flex items-center justify-center">
                         <img src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png" alt="user" className="w-20 h-20 rounded-full" />
