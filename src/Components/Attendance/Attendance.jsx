@@ -61,3 +61,5 @@ export const Attendance = () => {
         </div>
     );
 };
+
+export default Attendance;

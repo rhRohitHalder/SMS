@@ -1,7 +1,8 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Header from "../Header/Header";
 import { Calendar } from "@natscale/react-calendar";
+import { store } from '../../utils/store';
 const Dashboard = () => {
   const [eventState, setEventState] = useState("month");
 
@@ -14,7 +15,13 @@ const Dashboard = () => {
         [setValue]
     );
 
+    const [noticeList, setNoticeList] = useState([store.getState().Notice.value]);
 
+    useEffect(() => {
+      if (store.getState().Notice.value) {
+        setNoticeList(store.getState().Notice.value);
+      }
+    }, []);
   return (
     <div className="flex h-full">
       <Sidebar />
@@ -102,7 +109,13 @@ const Dashboard = () => {
             <div className="flex flex-col w-1/2 shadow-lg p-5 bg-white">
               <p className="text-2xl font-semibold">Notice Board</p>
               <div className="mt-5">
-                
+                {console.log("noticeList", noticeList)}
+                {/* {noticeList && noticeList.map((notice, index) => (
+                  <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow-md">
+                    <p className="text-lg font-semibold">{notice.title}</p>
+
+                  </div>
+                ))} */}
               </div>
             </div>
           </div>
