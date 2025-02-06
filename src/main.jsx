@@ -12,6 +12,7 @@ import Dashboard from './Components/Dashboard/Dashboard.jsx'
 import Routine from './Components/Routine/Routine.jsx'
 import Hostel from './Components/Hostel/Hostel.jsx'
 import Message from './Components/Message/Message.jsx'
+import Attendance from './Components/Attendance/Attendance.jsx'
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -26,6 +27,7 @@ createRoot(document.getElementById('root')).render(
         <Route path='/routine' element={<Routine />} />
         <Route path='/hostel' element={<Hostel />} />
         <Route path='/message' element={<Message />} />
+        <Route path="/attendance" element={<Attendance />} />
       </Routes>
     </BrowserRouter>
   </Provider>
