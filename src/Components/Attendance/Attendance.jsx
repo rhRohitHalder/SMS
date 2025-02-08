@@ -1,63 +1,69 @@
-import { useState, useEffect } from 'react';
-import Calendar from 'react-calendar';
+import { useState } from "react";
+import Header from "../Header/Header";
+import Sidebar from "../Sidebar/Sidebar";
 
-export const Attendance = () => {
-    const [date, setDate] = useState(new Date());
-    const [attendanceData, setAttendanceData] = useState({});
-    const [points, setPoints] = useState(0);
+export default function Attendance() {
+    const [attendance, setAttendance] = useState({
+        'John Doe': true,
+        'Jane Smith': false,
+        'Mark Johnson': false
+    });
 
-    useEffect(() => {
-        const savedData = localStorage.getItem('attendanceData');
-        if (savedData) {
-            setAttendanceData(JSON.parse(savedData));
-        }
-    }, []);
-
-    const handleDateClick = (selectedDate) => {
-        const dateStr = selectedDate.toDateString();
-        const newAttendanceData = { ...attendanceData };
-
-        if (!newAttendanceData[dateStr]) {
-            newAttendanceData[dateStr] = {
-                status: 'present',
-                points: 10
-            };
-            setPoints(prevPoints => prevPoints + 10);
-        } else {
-            const pointsToRemove = newAttendanceData[dateStr].points;
-            delete newAttendanceData[dateStr];
-            setPoints(prevPoints => prevPoints - pointsToRemove);
-        }
-
-        setAttendanceData(newAttendanceData);
-        localStorage.setItem('attendanceData', JSON.stringify(newAttendanceData));
-    };
-
-    const tileClassName = ({ date }) => {
-        const dateStr = date.toDateString();
-        return attendanceData[dateStr] ? 'bg-green-200' : null;
+    const toggleAttendance = (name) => {
+        setAttendance(prev => ({
+            ...prev,
+            [name]: !prev[name]
+        }));
     };
 
     return (
-        <div className="max-w-xl mx-auto p-5 bg-white shadow-lg rounded-lg">
-            <h2 className="text-2xl font-bold text-center mb-5">Attendance System</h2>
-            <div className="mb-5">
-                <Calendar
-                    onChange={setDate}
-                    value={date}
-                    onClickDay={handleDateClick}
-                    tileClassName={tileClassName}
-                    className="react-calendar"
-                />
-            </div>
-            <div className="mb-5 text-center">
-                <h3 className="text-xl font-semibold">Total Attendance Points</h3>
-                <p className="text-lg font-bold">{points}</p>
-            </div>
-            <div className="text-center">
-                <h3 className="text-xl font-semibold">Attendance Summary</h3>
-                <p>Days Present: {Object.keys(attendanceData).length}</p>
+        <div className="flex">
+            <Sidebar />
+            <div className="flex flex-col w-full">
+                <Header className="bg-white shadow" />
+                <div className="w-full h-full p-10 bg-gray-300">
+                    <h1 className="text-2xl font-semibold mb-4">Attendance</h1>
+                    <div className="overflow-x-auto">
+                        <table className="min-w-full bg-white shadow-md rounded-lg">
+                            <thead className="bg-gray-800 text-white">
+                                <tr>
+                                    <th className="py-2 px-4 text-left">Name</th>
+                                    <th className="py-2 px-4 text-left">Date</th>
+                                    <th className="py-2 px-4 text-left">Status</th>
+                                    <th className="py-2 px-4 text-left">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr className="bg-gray-100 border-b">
+                                    <td className="py-2 px-4">John Doe</td>
+                                    <td className="py-2 px-4">2023-10-01</td>
+                                    <td className="py-2 px-4">{attendance['John Doe'] ? "Present" : "Absent"}</td>
+                                    <td className="py-2 px-4">
+                                        <button className="text-blue-500 hover:underline" onClick={() => toggleAttendance('John Doe')}>Update</button>
+                                    </td>
+                                </tr>
+                                <tr className="bg-white border-b">
+                                    <td className="py-2 px-4">Jane Smith</td>
+                                    <td className="py-2 px-4">2023-10-01</td>
+                                    <td className="py-2 px-4">{attendance['Jane Smith'] ? "Present" : "Absent"}</td>
+                                    <td className="py-2 px-4">
+                                        <button className="text-blue-500 hover:underline" onClick={() => toggleAttendance('Jane Smith')}>Update</button>
+                                    </td>
+                                </tr>
+                                <tr className="bg-gray-100 border-b">
+                                    <td className="py-2 px-4">Mark Johnson</td>
+                                    <td className="py-2 px-4">2023-10-01</td>
+                                    <td className="py-2 px-4">{attendance['Mark Johnson'] ? "Present" : "Absent"}</td>
+                                    <td className="py-2 px-4">
+                                        <button className="text-blue-500 hover:underline" onClick={() => toggleAttendance('Mark Johnson')}>Update</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
         </div>
-    );
-};
+    )
+}
+
