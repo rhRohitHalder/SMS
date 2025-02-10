@@ -1,3 +1,4 @@
+
 import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Routes, Route } from 'react-router'
 import { Provider } from 'react-redux'
@@ -18,7 +19,7 @@ import BookList from './Components/Library/BookList.jsx'
 import AllClasses from './Components/Classes/AllClasses.jsx'
 import AddClass from './Components/Classes/AddClass.jsx'
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <Provider store={store}>
     <BrowserRouter>
       <Routes>
@@ -39,4 +40,4 @@ createRoot(document.getElementById('root')).render(
       </Routes>
     </BrowserRouter>
   </Provider>
-)
+);
