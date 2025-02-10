@@ -10,16 +10,9 @@ function Header() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-white flex justify-between px-20 py-3 shadow-lg">
+    <div className="bg-white flex justify-between pl-20 pr-10 py-3 shadow-lg">
       <div className="flex flex-row items-center gap-5 text-2xl">
-        <p className="text-gray-400 text-3xl">
-          <IoSearch />
-        </p>
-        <input
-          placeholder="Find Something..."
-          className="border-none outline-none px-5 py-2 bg-transparent"
-          type="text"
-        />
+        <p className="font-semibold">School Menegment System</p>
       </div>
       <div className="flex flex-row items-center gap-5">
         <div className="flex flex-row items-center gap-5">

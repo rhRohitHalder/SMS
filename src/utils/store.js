@@ -1,4 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
+import NoticeReducer from '../features/Notice/NoticeSlice'
+import LibraryReducer from '../features/LibraryList/LibrarySlice'
+
 export const store = configureStore({
   reducer: {
     role: (state = JSON.parse(localStorage.getItem('role')) || { value: '' }, action) => {
@@ -19,14 +22,7 @@ export const store = configureStore({
           return state;
       }
     },
-    Notice: (state = JSON.parse(localStorage.getItem('Notice')) || { value: [] }, action) => {
-      switch (action.type) {
-        case 'SET_NOTICE':
-          localStorage.setItem('Notice', JSON.stringify({ value: action.payload }));
-          return { value: action.payload }
-        default:
-          return state;
-      }
-    },
+    Notice: NoticeReducer,
+    Library: LibraryReducer,
   },
 })

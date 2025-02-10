@@ -13,6 +13,10 @@ import Routine from './Components/Routine/Routine.jsx'
 import Hostel from './Components/Hostel/Hostel.jsx'
 import Message from './Components/Message/Message.jsx'
 import Attendance from './Components/Attendance/Attendance.jsx'
+import AddBooks from './Components/Library/AddBooks.jsx'
+import BookList from './Components/Library/BookList.jsx'
+import AllClasses from './Components/Classes/AllClasses.jsx'
+import AddClass from './Components/Classes/AddClass.jsx'
 
 createRoot(document.getElementById('root')).render(
   <Provider store={store}>
@@ -28,6 +32,10 @@ createRoot(document.getElementById('root')).render(
         <Route path='/hostel' element={<Hostel />} />
         <Route path='/message' element={<Message />} />
         <Route path="/attendance" element={<Attendance />} />
+        <Route path="/Addbook" element={<AddBooks />} />
+        <Route path="/BookList" element={<BookList />} />
+        <Route path="/classList" element={<AllClasses />} />
+        <Route path="/AddClass" element={<AddClass />} />
       </Routes>
     </BrowserRouter>
   </Provider>

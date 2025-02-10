@@ -1,27 +1,25 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Header from "../Header/Header";
 import { Calendar } from "@natscale/react-calendar";
-import { store } from '../../utils/store';
+import { useSelector } from "react-redux";
+
 const Dashboard = () => {
   const [eventState, setEventState] = useState("month");
+  const [value, setValue] = useState(null);
+  const noticeListDashboard = useSelector((state) => state.Notice.value);
+  const onChange = useCallback((newValue) => {
+    setValue(newValue);
+  }, []);
 
-  const [value, setValue] = useState();
+  const colorList = {
+    1: "red",
+    2: "green",
+    3: "#bda800",
+    4: "blue",
+    5: "gray",
+  };
 
-    const onChange = useCallback(
-        (value) => {
-            setValue(value);
-        },
-        [setValue]
-    );
-
-    const [noticeList, setNoticeList] = useState([store.getState().Notice.value]);
-
-    useEffect(() => {
-      if (store.getState().Notice.value) {
-        setNoticeList(store.getState().Notice.value);
-      }
-    }, []);
   return (
     <div className="flex h-full">
       <Sidebar />
@@ -100,25 +98,34 @@ const Dashboard = () => {
                   ))}
                 </div>
 
-                {/* Calendar Component */}
                 <div className="w-full mt-5">
-                    <Calendar value={value} onChange={onChange} />
+                  <Calendar value={value} onChange={onChange} />
                 </div>
               </div>
             </div>
+
+            {/* Notice Board */}
             <div className="flex flex-col w-1/2 shadow-lg p-5 bg-white">
               <p className="text-2xl font-semibold">Notice Board</p>
               <div className="mt-5">
-                {console.log("noticeList", noticeList)}
-                {/* {noticeList && noticeList.map((notice, index) => (
-                  <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow-md">
-                    <p className="text-lg font-semibold">{notice.title}</p>
-
-                  </div>
-                ))} */}
+                {noticeListDashboard.length > 0 ? (
+                  noticeListDashboard.map((notice, index) => (
+                    <div key={index} className="p-3 border-b-2">
+                      <p 
+                      style={{ backgroundColor: colorList[(index % 5) + 1] }}
+                      className='inline-block rounded-full px-5 py-3 text-white font-medium mb-3'>{notice.Date}</p>
+                      <p className="font-medium">{notice.title}</p>
+                      <p className="text-gray-400 text-sm">{notice.details}</p>
+                      <p className="text-gray-400 text-xs">Posted By: {notice.postedBy}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p className="text-gray-400">No notices available</p>
+                )}
               </div>
             </div>
           </div>
+          
         </div>
       </div>
     </div>
