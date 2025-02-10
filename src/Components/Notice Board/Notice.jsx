@@ -1,11 +1,12 @@
 import { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import Header from "../Header/Header";
-import { useDispatch } from "react-redux";
+import { setNotice } from '../../features/Notice/NoticeSlice';
+import { useDispatch, useSelector } from "react-redux";
 
 function Notice() {
   const dispatch = useDispatch();
-
+  const noticeLists = useSelector((state) => state.Notice.value);
   const [noticeList, setNoticeList] = useState([]);
   const [noticeDetails, setNoticeDetails] = useState({
     title: "",
@@ -15,17 +16,19 @@ function Notice() {
   });
 
   const handleSubmit = (e) => {
-    e.preventDefault(); // Prevent page refresh
-    setNoticeList([...noticeList, noticeDetails]);
-    setNoticeDetails({
-      // Reset form after submission
-      title: "",
-      details: "",
-      postedBy: "",
-      Date: new Date().toISOString().split("T")[0],
-    });
-    if (noticeDetails.title && noticeDetails.details && noticeDetails.postedBy) {
-      dispatch({ type: "SET_NOTICE", payload: noticeDetails });
+    if (
+      noticeDetails.title &&
+      noticeDetails.details &&
+      noticeDetails.postedBy
+    ) {
+      setNoticeList([...noticeList, noticeDetails]);
+      dispatch(setNotice([...noticeList, noticeDetails]));
+      setNoticeDetails({
+        title: "",
+        details: "",
+        postedBy: "",
+        Date: new Date().toISOString().split("T")[0],
+      });
     }
   };
 
@@ -44,7 +47,7 @@ function Notice() {
     3: "#bda800",
     4: "blue",
     5: "gray",
-  }
+  };
 
   return (
     <div className="flex h-screen w-full">
@@ -57,7 +60,7 @@ function Notice() {
             {/* Left Side - Form */}
             <div className="w-1/3  bg-slate-300 p-10 rounded-lg">
               <p className="text-4xl font-semibold">Create A Notice</p>
-              <form className="w-[85%]" onSubmit={handleSubmit}>
+              <div className="w-[85%]">
                 <p className="mt-5 text-xl mb-2">Title</p>
                 <input
                   value={noticeDetails.title}
@@ -115,7 +118,7 @@ function Notice() {
                 />
                 <div className="w-full flex gap-10 flex-row mt-10 text-white">
                   <button
-                    type="submit"
+                    onClick={() => handleSubmit()}
                     className="px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer"
                   >
                     Save
@@ -128,32 +131,41 @@ function Notice() {
                     Reset
                   </button>
                 </div>
-              </form>
+              </div>
             </div>
 
             {/* Right Side - Table */}
             <div className="w-2/3 bg-slate-300 p-10 rounded-lg">
               <p className="text-4xl font-semibold">Notice Board</p>
               <div className="mt-5">
-                {noticeList.length > 0 ? (
-                  noticeList.map((notice, index) => (
-                    <div key={index} className="mb-4 p-4 bg-white rounded-lg shadow-md">
+                {noticeLists.length > 0 ? (
+                  noticeLists.map((notice, index) => (
+                    <div
+                      key={index}
+                      className="mb-4 p-4 bg-white rounded-lg shadow-md"
+                    >
                       <p
-                        style={{ backgroundColor: colorList[index % 5 + 1] }}
-                        className="text-lg text-white font-semibold px-5 mb-3 py-2 rounded-full inline-block">{notice.Date}</p>
+                        style={{ backgroundColor: colorList[(index % 5) + 1] }}
+                        className="text-lg text-white font-semibold px-5 mb-3 py-2 rounded-full inline-block"
+                      >
+                        {notice.Date}
+                      </p>
                       <p className="text-2xl font-semibold">{notice.title}</p>
                       <p className="text-lg">{notice.details}</p>
-                      <p><strong>Posted By:</strong> {notice.postedBy}</p>
+                      <p>
+                        <strong>Posted By:</strong> {notice.postedBy}
+                      </p>
                     </div>
                   ))
                 ) : (
-                  <p className="text-xl text-gray-600">No notices posted yet.</p>
+                  <p className="text-xl text-gray-600">
+                    No notices posted yet.
+                  </p>
                 )}
               </div>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );

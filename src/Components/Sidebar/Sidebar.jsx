@@ -1,10 +1,19 @@
 import { FaSchool } from "react-icons/fa";
 import { MdDashboard } from "react-icons/md";
 import { PiExam, PiNotificationDuotone } from "react-icons/pi";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { store } from "../../utils/store";
 
 const Sidebar = () => {
+    const navigate = useNavigate();
+    const Library = (value) => {
+        navigate(value);
+    }
+
+    const Class = (value) => {
+        navigate(value);
+    }
+
     return (
         <div className="flex flex-col sticky top-0 bg-gradient-to-br from-gray-900 to-gray-700 shadow-lg pt-10">
             <div className="w-64 sticky h-screen">
@@ -53,6 +62,20 @@ const Sidebar = () => {
                         <h1 className="text-white text-xl font-semibold">Message</h1>
                     </div>
                 </Link>
+                <select 
+                onChange={(e) => Library(e.target.value)}
+                className="bg-transparent w-full p-4 flex items-center gap-4 hover:bg-gray-700 transition duration-300 ease-in-out text-white">
+                    <option value="">Library</option>
+                    <option value="/Addbook">Add Books</option>
+                    <option value="/BookList">All Books</option>
+                </select>
+                <select 
+                onChange={(e) => Class(e.target.value)}
+                className="bg-transparent w-full p-4 flex items-center gap-4 hover:bg-gray-700 transition duration-300 ease-in-out text-white">
+                    <option value="">Class</option>
+                    <option value="/AddClass">Add Class</option>
+                    <option value="/classList">All Classes</option>
+                </select>
             </div>
         </div>
     );

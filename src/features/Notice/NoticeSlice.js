@@ -20,3 +20,5 @@ export const Notice = createSlice({
 });
 
 export const { setNotice, removeNotice } = Notice.actions;
+
+export default Notice.reducer;
