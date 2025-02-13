@@ -48,7 +48,7 @@ const StudentDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Student data:", studentData);
+    
     setIsEditing(false);
   };
 

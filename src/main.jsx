@@ -22,6 +22,8 @@ import Subject from './Components/Subject/Subject.jsx'
 import StudentDashboard from './Components/Dashboard/StudentDashboard.jsx'
 import TeacherDashboard from './Components/Dashboard/TeacherDashboard.jsx'
 import AddResult from './Components/Result/AddResult.jsx'
+import FindStudent from './Components/student/FindStudent.jsx'
+import StudentAdmissitionFrom from './Components/student/StudentAdmissitionFrom.jsx'
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
@@ -45,6 +47,9 @@ createRoot(document.getElementById("root")).render(
         <Route path="/AddClass" element={<AddClass />} />
         <Route path="/Subject" element={<Subject />} />
         <Route path="/Result" element={<AddResult />} />
+        <Route path="/FindStudent" element={<FindStudent />} />
+        <Route path="/StudentAdmissitionFrom" element={<StudentAdmissitionFrom />} />
+        
       </Routes>
     </BrowserRouter>
   </Provider>
