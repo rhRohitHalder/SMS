@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import { Link } from "react-router";
+import { useSelector } from "react-redux";
 
 function FindStudent() {
+  const StudentList = useSelector((state) => state.Student.value);
+
   const [searchRoll, setSearchRoll] = useState("");
   const [searchName, setSearchName] = useState("");
   const [searchClass, setSearchClass] = useState("");
@@ -11,13 +14,13 @@ function FindStudent() {
 
   const handleSearch = () => {
     if(searchClass != '') {
-      studentList.find((student) => student.class = searchClass);
+      StudentList.find((student) => student.class = searchClass);
     }
     if(searchName != '') {
-      studentList.find((student) => student.name = searchName);
+      StudentList.find((student) => student.name = searchName);
     }
     if(searchRoll != '') {
-      studentList.find((student) => student.roll = searchRoll);
+      StudentList.find((student) => student.roll = searchRoll);
     }
   };
 
@@ -118,7 +121,43 @@ function FindStudent() {
                     </tr>
                   </thead>
                   <tbody className="bg-white divide-y divide-gray-200">
-                    
+                    {StudentList.map((student, index) => (
+                      <tr key={index}>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.roll}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          <img src={student.photo} alt="" />
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.firstName} {student.lastName}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.gender}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.class}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.section}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.parant}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.address}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.dateOfBirth}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.phone}
+                        </td>
+                        <td className="px-6 py-4 whitespace-nowrap">
+                          {student.email}
+                        </td>
+                      </tr>
+                    ))}
                   </tbody>
                 </table>
               </div>
