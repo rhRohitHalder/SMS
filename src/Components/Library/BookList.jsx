@@ -10,7 +10,7 @@ function BookList() {
   return (
     <div className="flex">
         <Sidebar />
-      <div className="bg-gray-300 flex flex-col w-screen">
+      <div className="bg-gray-200 flex flex-col w-screen">
         <Header />
         <div className="flex flex-col p-10">
           <p className="text-3xl">Library</p>

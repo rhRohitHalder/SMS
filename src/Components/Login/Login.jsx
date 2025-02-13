@@ -23,7 +23,7 @@ function Login() {
     console.log(`Authenticating as ${role}:`, credentials);
     dispatch({ type: "ASSIGN_ROLE", payload: role });
     dispatch({ type: "ASSIGN_NAME", payload: credentials.username });
-    navigation(`/dashboard`);
+    role == "Admin" ? navigation("/AdminDashboard") : role == "Teacher" ? navigation("/TeacherDashboard") : navigation("/StudentDashboard");
     setCredentials({ username: "", password: "" });
   };
 

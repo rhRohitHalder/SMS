@@ -26,7 +26,7 @@ const Sidebar = () => {
                         <h1 className="text-gray-400 text-sm font-semibold">{store.getState().name.value}</h1>
                     </div>
                 </div>
-                <Link to="/dashboard">
+                <Link to="/StudentDashboard">
                     <div className="p-4 flex items-center gap-4 hover:bg-gray-700 transition duration-300 ease-in-out">
                         <MdDashboard className="text-white text-4xl" />
                         <h1 className="text-white text-xl font-semibold">Dashboard</h1>
@@ -60,6 +60,12 @@ const Sidebar = () => {
                     <div className="p-4 flex items-center gap-4 hover:bg-gray-700 transition duration-300 ease-in-out">
                         <FaSchool className="text-white text-4xl" />
                         <h1 className="text-white text-xl font-semibold">Message</h1>
+                    </div>
+                </Link>
+                <Link to="/Result">
+                    <div className="p-4 flex items-center gap-4 hover:bg-gray-700 transition duration-300 ease-in-out">
+                        <FaSchool className="text-white text-4xl" />
+                        <h1 className="text-white text-xl font-semibold">Result</h1>
                     </div>
                 </Link>
                 <select 

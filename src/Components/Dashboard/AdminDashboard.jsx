@@ -4,7 +4,7 @@ import Header from "../Header/Header";
 import { Calendar } from "@natscale/react-calendar";
 import { useSelector } from "react-redux";
 
-const Dashboard = () => {
+const AdminDashboard = () => {
   const [eventState, setEventState] = useState("month");
   const [value, setValue] = useState(null);
   const noticeListDashboard = useSelector((state) => state.Notice.value);
@@ -132,4 +132,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default AdminDashboard;

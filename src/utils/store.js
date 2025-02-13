@@ -1,6 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import NoticeReducer from '../features/Notice/NoticeSlice'
 import LibraryReducer from '../features/LibraryList/LibrarySlice'
+import ClassReducer from '../features/class/ClassSlice'
+import ResultReducer from '../features/Result/ResultSlice'
 
 export const store = configureStore({
   reducer: {
@@ -24,5 +26,7 @@ export const store = configureStore({
     },
     Notice: NoticeReducer,
     Library: LibraryReducer,
+    Class: ClassReducer,
+    Result: ResultReducer
   },
 })

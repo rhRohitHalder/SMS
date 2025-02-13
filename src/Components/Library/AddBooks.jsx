@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router"; // Fixed import
+import { Link } from "react-router";
 import Header from "../Header/Header";
 import { useDispatch } from "react-redux";
 import { setLibrary } from "../../features/LibraryList/LibrarySlice";
@@ -64,7 +64,7 @@ function AddBooks() {
   return (
     <div className="flex">
       <Sidebar />
-      <div className="flex flex-col bg-gray-400 w-screen">
+      <div className="flex flex-col bg-gray-200 w-screen">
         <Header />
         <div className="p-10 flex flex-col">
           <p className="text-3xl">Library</p>
