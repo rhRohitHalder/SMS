@@ -61,10 +61,10 @@ function ExamSchedule() {
         <div className="w-full h-auto">
           <Header />
           <div className="w-full h-auto p-10">
-            <p className="text-3xl font-semibold">Examination</p>
+            <p className="text-3xl font-semibold bg-blue-500 rounded-md px-5 py-3 text-white">Examination</p>
             <div className="w-full h-auto flex flex-row gap-10 mt-10">
               {/* Left Side - Form */}
-              <div className="w-1/3 bg-slate-300 p-10 rounded-lg">
+              <div className="w-1/3 bg-slate-200 p-10 rounded-lg ">
                 <p className="text-2xl font-semibold">Add New Exam</p>
                 <form className="w-[85%]" onSubmit={handleSubmit}>
                   <p className="mt-5 text-xl mb-2">Exam Name</p>
@@ -176,10 +176,10 @@ function ExamSchedule() {
               </div>
 
               {/* Right Side - Table */}
-              <div className="w-2/3 bg-slate-300 p-10 rounded-lg">
+              <div className="w-2/3 bg-slate-200 p-10 rounded-lg">
                 <p className="text-2xl font-semibold">All Subjects</p>
                 <div className="mt-5">
-                  <table className="w-full border-collapse border border-gray-500">
+                  <table className="w-full border-collapse border border-gray-400">
                     <thead>
                       <tr className="bg-gray-400">
                         <th className="px-4 py-2">ID</th>

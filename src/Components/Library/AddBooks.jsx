@@ -67,7 +67,7 @@ function AddBooks() {
       <div className="flex flex-col bg-gray-200 w-screen">
         <Header />
         <div className="p-10 flex flex-col">
-          <p className="text-3xl">Library</p>
+          <p className="text-3xl bg-blue-500 rounded-md px-5 py-3 text-white">Library</p>
           <div className="flex justify-start gap-2 flex-row my-10">
             <Link to="/dashboard">Home</Link>
             <p>{">"}</p>
@@ -173,7 +173,7 @@ function AddBooks() {
               </div>
               <div className="flex flex-row gap-5 mt-20 px-5">
                 <button
-                  className="px-10 py-3 bg-[#FE8D01] rounded-lg text-white font-semibold text-xl"
+                  className="px-10 py-3 bg-[#FE8D01] rounded-lg text-white font-semibold text-xl active:scale-95 transition-transform"
                   type="submit"
                 >
                   Save
@@ -181,7 +181,7 @@ function AddBooks() {
                 <ToastContainer />
                 <button
                   type="button"
-                  className="px-10 py-3 bg-blue-800 rounded-lg text-white font-semibold text-xl"
+                  className="px-10 py-3 bg-blue-800 rounded-lg text-white font-semibold text-xl active:scale-95 transition-transform"
                   onClick={handleReset}
                 >
                   Reset

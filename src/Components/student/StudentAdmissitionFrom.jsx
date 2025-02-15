@@ -324,14 +324,14 @@ function StudentAdmissionForm() {
                 <div className="flex space-x-4">
                   <button
                     type="submit"
-                    className="py-3 px-10 bg-yellow-600 text-xl text-white rounded-md shadow-sm hover:bg-yellow-700"
+                    className="py-3 px-10 bg-yellow-600 text-xl text-white rounded-md shadow-sm hover:bg-yellow-700  active:scale-95 transition-transform"
                   >
                     Save
                   </button>
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="py-3 px-10 bg-blue-900 text-xl text-white rounded-md shadow-sm hover:bg-blue-800"
+                    className="py-3 px-10 bg-blue-900 text-xl text-white rounded-md shadow-sm hover:bg-blue-800  active:scale-95 transition-transform"
                   >
                     Reset
                   </button>

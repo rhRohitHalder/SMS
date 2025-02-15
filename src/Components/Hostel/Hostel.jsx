@@ -40,9 +40,9 @@ function Hostel() {
     <div className="flex">
       <Sidebar />
       <div className="flex flex-col w-screen bg-gray-100">
-        <Header/>
+        <Header />
         <div className="w-full h-auto px-10 py-10">
-          <p className="text-3xl font-semibold">Hostel List</p>
+          <p className="text-3xl font-semibold bg-blue-500 rounded-md px-5 py-3 text-white">Hostel List</p>
           <div className="w-full h-auto flex flex-row gap-10 mt-10">
             {/* Left Side - Form */}
             <div className="w-1/3 bg-slate-300 p-10 rounded-lg">
@@ -127,14 +127,14 @@ function Hostel() {
                 <div className="w-full flex gap-10 flex-row mt-10 text-white">
                   <button
                     type="submit"
-                    className="px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer"
+                    className="px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer active:scale-95 transition-transform"
                   >
                     Save
                   </button>
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer"
+                    className="px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer active:scale-95 transition-transform"
                   >
                     Reset
                   </button>

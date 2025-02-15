@@ -13,7 +13,7 @@ function BookList() {
       <div className="bg-gray-200 flex flex-col w-screen">
         <Header />
         <div className="flex flex-col p-10">
-          <p className="text-3xl">Library</p>
+          <p className="text-3xl bg-blue-500 rounded-md px-5 py-3 text-white">Library</p>
           <div className="flex justify-start gap-2 flex-row my-10">
             <Link to="/dashboard">Home</Link>
             <p>{">"}</p>

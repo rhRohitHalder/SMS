@@ -55,10 +55,10 @@ function Notice() {
       <div className="w-full h-auto">
         <Header />
         <div className="w-full h-full p-10 ">
-          <p className="text-3xl font-semibold">Notice Board</p>
+          <p className="text-3xl font-semibold bg-blue-500 rounded-md px-5 py-3 text-white">Notice Board</p>
           <div className="w-full h-auto flex flex-row gap-10 mt-10">
             {/* Left Side - Form */}
-            <div className="w-1/3  bg-slate-300 p-10 rounded-lg">
+            <div className="w-1/3  bg-slate-200 p-10 rounded-lg">
               <p className="text-4xl font-semibold">Create A Notice</p>
               <div className="w-[85%]">
                 <p className="mt-5 text-xl mb-2">Title</p>
@@ -119,14 +119,14 @@ function Notice() {
                 <div className="w-full flex gap-10 flex-row mt-10 text-white">
                   <button
                     onClick={() => handleSubmit()}
-                    className="px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer"
+                    className="px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer active:scale-95 transition-transform "
                   >
                     Save
                   </button>
                   <button
                     type="button"
                     onClick={handleReset}
-                    className="px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer"
+                    className="px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer active:scale-95 transition-transform "
                   >
                     Reset
                   </button>
@@ -135,7 +135,7 @@ function Notice() {
             </div>
 
             {/* Right Side - Table */}
-            <div className="w-2/3 bg-slate-300 p-10 rounded-lg">
+            <div className="w-2/3 bg-slate-200 p-10 rounded-lg">
               <p className="text-4xl font-semibold">Notice Board</p>
               <div className="mt-5">
                 {noticeLists.length > 0 ? (

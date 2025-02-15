@@ -71,7 +71,7 @@ function Routine() {
         <div className="w-full h-auto">
           <Header />
           <div className="w-full h-auto p-10">
-            <p className="text-3xl font-semibold">Routine Board</p>
+            <p className="text-3xl font-semibold bg-blue-500 rounded-md px-5 py-3 text-white">Routine Board</p>
             <div className="w-full h-auto flex flex-row gap-10 mt-10">
               {/* Left Side - Form */}
               <div className="w-1/3 bg-slate-300 p-10 rounded-lg">
@@ -188,14 +188,14 @@ function Routine() {
                   <div className="w-full flex gap-10 flex-row mt-10 text-white">
                     <button
                       type="submit"
-                      className="px-10 text-2xl font-semibold py-2 bg-[#FE8D01] rounded-lg cursor-pointer"
+                      className="px-10 text-2xl font-semibold py-2 bg-[#FE8D01] rounded-lg cursor-pointer active:scale-95 transition-transform"
                     >
                       Save
                     </button>
                     <button
                       type="button"
                       onClick={handleReset}
-                      className="px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer"
+                      className="px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer active:scale-95 transition-transform"
                     >
                       Reset
                     </button>

@@ -56,7 +56,9 @@ function AddResult() {
       <div className="w-full h-full flex flex-col">
         <Header />
         <div className="h-screen p-10 bg-gray-200">
-          <p className="text-3xl font-semibold">Add Result</p>
+          <p className="text-3xl font-semibold  bg-blue-500 rounded-md px-5 py-3 text-white">
+            Add Result
+          </p>
           <div className="mt-5 mb-10 flex flex-row gap-2">
             <Link to="/TeacherDashboard">Home</Link>
             <p>{">"}</p>
@@ -65,7 +67,9 @@ function AddResult() {
 
           <div className="w-full flex flex-col bg-white p-10">
             <p className="text-2xl font-semibold">Add New Result</p>
-            <form className="mt-10" onSubmit={handelSubmit}> {/* Fixed form submit */}
+            <form className="mt-10" onSubmit={handelSubmit}>
+              {" "}
+              {/* Fixed form submit */}
               <div className="w-full flex flex-row gap-5">
                 <div className="flex flex-col w-1/4">
                   <p className="text-gray-600 text-xl">Student Name</p>
@@ -73,7 +77,10 @@ function AddResult() {
                     className="w-full py-3 bg-gray-300 rounded-lg mt-3 px-5"
                     value={resultDetails.studentName}
                     onChange={(e) =>
-                      setResultDetails({ ...resultDetails, studentName: e.target.value })
+                      setResultDetails({
+                        ...resultDetails,
+                        studentName: e.target.value,
+                      })
                     }
                     type="text"
                     required
@@ -85,7 +92,10 @@ function AddResult() {
                     className="w-full py-3 bg-gray-300 rounded-lg mt-3 px-5"
                     value={resultDetails.ExamName}
                     onChange={(e) =>
-                      setResultDetails({ ...resultDetails, ExamName: e.target.value })
+                      setResultDetails({
+                        ...resultDetails,
+                        ExamName: e.target.value,
+                      })
                     }
                     type="text"
                     required
@@ -97,7 +107,10 @@ function AddResult() {
                     className="w-full py-3 bg-gray-300 rounded-lg mt-3 px-5"
                     value={resultDetails.grade}
                     onChange={(e) =>
-                      setResultDetails({ ...resultDetails, grade: e.target.value })
+                      setResultDetails({
+                        ...resultDetails,
+                        grade: e.target.value,
+                      })
                     }
                     type="text"
                     required
@@ -108,7 +121,10 @@ function AddResult() {
                   <select
                     value={resultDetails.subject}
                     onChange={(e) =>
-                      setResultDetails({ ...resultDetails, subject: e.target.value })
+                      setResultDetails({
+                        ...resultDetails,
+                        subject: e.target.value,
+                      })
                     }
                     className="w-full py-3 bg-gray-300 rounded-lg mt-3 px-5"
                     required
@@ -122,7 +138,6 @@ function AddResult() {
                   </select>
                 </div>
               </div>
-
               <div className="mt-10 flex flex-row gap-5">
                 <div className="flex flex-col w-1/4">
                   <p className="text-gray-600 text-xl">Percentage</p>
@@ -130,7 +145,10 @@ function AddResult() {
                     className="w-full py-3 bg-gray-300 rounded-lg mt-3 px-5"
                     value={resultDetails.percentage}
                     onChange={(e) =>
-                      setResultDetails({ ...resultDetails, percentage: e.target.value })
+                      setResultDetails({
+                        ...resultDetails,
+                        percentage: e.target.value,
+                      })
                     }
                     type="number"
                     min="0"
@@ -143,7 +161,10 @@ function AddResult() {
                   <select
                     value={resultDetails.class}
                     onChange={(e) =>
-                      setResultDetails({ ...resultDetails, class: e.target.value })
+                      setResultDetails({
+                        ...resultDetails,
+                        class: e.target.value,
+                      })
                     }
                     className="w-full py-3 bg-gray-300 rounded-lg mt-3 px-5"
                     required
@@ -162,19 +183,28 @@ function AddResult() {
                     className="w-full py-3 bg-gray-300 rounded-lg mt-3 px-5"
                     value={resultDetails.date}
                     onChange={(e) =>
-                      setResultDetails({ ...resultDetails, date: e.target.value })
+                      setResultDetails({
+                        ...resultDetails,
+                        date: e.target.value,
+                      })
                     }
                     type="date"
                     required
                   />
                 </div>
               </div>
-
               <div className="flex flex-row mt-20 gap-5 text-white">
-                <button type="submit" className="px-10 text-2xl font-semibold py-2 bg-[#FE8D01] rounded-lg cursor-pointer">
+                <button
+                  type="submit"
+                  className="px-10 text-2xl font-semibold py-2 bg-[#FE8D01] rounded-lg cursor-pointer active:scale-95 transition-transform"
+                >
                   Save
                 </button>
-                <button type="button" onClick={Reset} className="px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer">
+                <button
+                  type="button"
+                  onClick={Reset}
+                  className="px-10 text-2xl font-semibold py-2 bg-blue-950 rounded-lg cursor-pointer active:scale-95 transition-transform"
+                >
                   Reset
                 </button>
               </div>

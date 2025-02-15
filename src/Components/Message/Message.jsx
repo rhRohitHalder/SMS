@@ -42,9 +42,9 @@ function Message() {
       <div className="w-full h-full">
         <Header />
         <div className="w-full h-auto p-10">
-        <p className="text-5xl font-semibold">Messaging</p>
+        <p className="text-3xl font-semibold bg-blue-500 rounded-md px-5 py-4 text-white">Messaging</p>
         <div className="w-full h-full flex justify-center items-center">
-          <div className="mt-20 bg-gray-400 w-3/4 px-20 py-20 rounded-lg">
+          <div className="mt-20 bg-gray-200 w-3/4 px-20 py-20 rounded-lg">
             <p className="text-4xl font-semibold">Write New Message</p>
             <form onSubmit={handleSubmit}>
               <p className="mt-5 text-xl mb-2">Title</p>
@@ -75,7 +75,7 @@ function Message() {
               ></textarea>
               <div className="flex gap-10 text-white mt-10">
                 <button
-                  className="px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer"
+                  className="px-10 text-2xl font-semibold py-2 bg-yellow-600 rounded-lg cursor-pointer active:scale-95 transition-transform"
                   type="submit"
                 >
                   Send
@@ -83,7 +83,7 @@ function Message() {
                 <button
                   type="button"
                   onClick={reset}
-                  className="px-10 text-2xl font-semibold py-2 bg-red-600 rounded-lg cursor-pointer"
+                  className="px-10 text-2xl font-semibold py-2 bg-red-600 rounded-lg cursor-pointer active:scale-95 transition-transform"
                 >
                   Reset
                 </button>

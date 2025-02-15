@@ -4,7 +4,7 @@ import Sidebar from "../Sidebar/Sidebar";
 
 function Subject() {
   const [subjects, setSubjects] = useState([]);
-  
+
   const [subjectDetails, setSubjectDetails] = useState({
     subjectName: "",
     subjectType: "",
@@ -40,7 +40,7 @@ function Subject() {
 
   const subjectTypes = ["English", "Hindi", "Maths", "Science"];
   const classes = [5, 6, 7, 8, 9, 10, 11, 12];
-  const codes = ['#101', '#102', '#103'];
+  const codes = ["#101", "#102", "#103"];
 
   return (
     <div className="w-full h-auto flex">
